@@ -6,7 +6,7 @@ Everything runs in the student's browser. There is no server, no account, no tra
 
 ## What students do
 
-1. **Explore the timeline.** A zigzag timeline, colored by Part, with a card and illustration for each event. Cards that have videos show a "▶ videos" badge. Click any card to open a slide with the facts, a "Watch what happened" section, and a "Texas law lens." Arrow keys work everywhere.
+1. **Explore the timeline.** A timeline with cards above and below the line, colored by Part, with a card and illustration for each event. Cards with videos show a small play mark. Click any card to open a slide that starts with a short account of the event, with "Watch" and "Texas law lens" sections you can open if you want them. Arrow keys work everywhere.
 2. **Use the Texas Law Toolkit** (top bar). Tabs: Offense ladder (with an ungraded quick check), Texas vs. most states, Castle Doctrine, Sentencing, Parole, Videos, Sources.
 3. **Answer the questions.** At the end of each Part there is a pencil node. It opens your readings (the links from your document), the key moments in that Part, and the questions as text boxes with live word counts. Writing saves automatically on that device.
 4. **Finish.** The star node (or "My essay" in the top bar) shows a checklist. When every box meets its minimum, "Finish and download my essay" builds the Word document and downloads it. Then the student attaches it in Google Classroom (Add or create, File, Turn in).
@@ -39,7 +39,7 @@ Do not rename the repository after students start, because progress is saved per
 
 ## Videos
 
-13 of the 16 events have videos (24 in all). Twelve play inside the slide after a click (YouTube, using the privacy-enhanced address). Twelve are news sites' own video pages, which cannot be embedded, so they open in a new tab. Each video has a one-line note on what to watch for, and a plain link underneath in case the player is blocked.
+13 of the 16 events have videos (24 in all). Twelve play inside the slide after a click (YouTube, using the privacy-enhanced address). Twelve are news sites' own video pages, which cannot be embedded, so they open in a new tab. Each video has a plain link underneath in case the player is blocked.
 
 | Event | Videos |
 |---|---|
@@ -57,14 +57,10 @@ Do not rename the repository after students start, because progress is saved per
 | Parole granted (2026) | CBS News Texas; FOX 4 (play here) |
 | Released | CBS News Texas (play here); CBS Texas on her parole restrictions (link) |
 
-**Please read before assigning**
-- **I could not preview the videos.** YouTube blocks the tool I used, so I confirmed each video from search results, the outlet's own page, and its title and description, not by watching it. Please skim any you plan to rely on.
-- **Publisher not confirmed for three.** A clip of the verdict being read, a Bo's Law committee-hearing report, and the prosecution opening (which has the same naming pattern as the defense opening, whose uploader, Law&Crime Network, is confirmed). The site labels these on the card.
-- **Long videos.** The opening statements, jury instructions and appeal hearing are likely long, and the openings may describe the shooting in detail. Each carries a "Heads up" note. Consider assigning clips, or playing them in class.
-- **Left out on purpose.** The police body-camera footage and the 911 call shown at trial. They are distressing, and the case is understandable without them.
-- **Embedding may be blocked.** If a publisher turned off embedding, or your school blocks YouTube, the player will show an error. Use the link under it, or play the video for the class. The preview link I gave you runs inside Claude's sandbox, which may also block embeds; GitHub Pages is the real test.
-- **Videos can disappear or move.** News sites remove pages. Check the links before the unit.
-- **Content.** Videos show real people and emotional courtroom moments (the verdict, Brandt Jean's statement, Guyger's testimony). The slide says students may skip any video.
+**Notes**
+- Publisher not confirmed for three videos (a clip of the verdict being read, a Bo's Law committee-hearing report, and the prosecution opening). The site labels these on the card.
+- The police body-camera footage and the 911 call shown at trial are left out on purpose.
+- If a publisher turned off embedding, or your school blocks YouTube, use the link under the player. News sites sometimes remove pages, so check links before the unit.
 
 **To turn all videos off**, open `index.html`, search for `videos:true`, and change it to `videos:false`. The badges, Watch sections and Videos tab disappear. **To change a video**, search for `var VIDEOS=`. Each entry is either `yt:"VIDEO_ID"` (plays here) or `u:"https://..."` (opens in a new tab).
 

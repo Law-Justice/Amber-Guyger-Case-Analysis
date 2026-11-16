@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Case Analysis: Amber Guyger | Law &amp; Justice</title>
 <style>
-:root{--ink:#1b2440;--paper:#f6f1e6;--muted:#5a6480;--gold:#ffc83d;--line:#e3dfd3;--ay:360px;--ih:720px}
+:root{--ink:#1b2440;--paper:#f6f1e6;--muted:#5a6480;--gold:#ffc83d;--line:#e3dfd3;--ay:250px;--ih:500px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Georgia,"Iowan Old Style","Palatino Linotype","Times New Roman",serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.55}
@@ -50,48 +50,39 @@ button{font:inherit;cursor:pointer}
 #cvart .c1{left:0;top:10px;transform:rotate(-5deg)}
 #cvart .c2{right:0;top:120px;transform:rotate(4deg)}
 #cvart .c3{left:8%;top:262px;transform:rotate(-2deg)}
-/* how-it-works strip + timeline */
+/* hint + timeline (single row, minimal cards) */
 #app{padding-bottom:30px}
-.strip{display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:16px max(18px,4vw) 0;font:600 .93rem system-ui,sans-serif;color:var(--muted)}
+.strip{padding:16px max(18px,4vw) 0;font:600 .93rem system-ui,sans-serif;color:var(--muted)}
 .strip b{color:var(--ink)}
-.legend{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
-.legend span{display:flex;align-items:center;gap:6px}
-.legend i{width:14px;height:14px;border-radius:50%;display:inline-block}
-#tlwrap{overflow-x:auto;overflow-y:hidden;padding:30px 0 16px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
-#tl{display:flex;padding:0 90px;min-width:max-content}
-.it{position:relative;width:176px;height:var(--ih);flex:none;scroll-snap-align:center}
-.seg{position:absolute;left:0;right:0;top:calc(var(--ay) - 4px);height:8px;background:var(--pc)}
-.it:first-child .seg{left:50%}.it:last-child .seg{right:50%}
+#tlwrap{overflow-x:auto;overflow-y:hidden;padding:20px 0 24px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+#tl{display:flex;padding:0 110px;min-width:max-content}
+.it{position:relative;width:124px;height:var(--ih);flex:none;scroll-snap-align:center}
+.seg{position:absolute;left:0;right:0;top:calc(var(--ay) - 3px);height:6px;background:var(--pc)}
 .stem{position:absolute;left:calc(50% - 1.5px);width:3px;background:var(--pc)}
-.up .stem{top:calc(var(--ay) - 36px);height:36px}.dn .stem{top:var(--ay);height:36px}
-.node{position:absolute;left:50%;top:var(--ay);transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:#fff;border:7px solid var(--pc);padding:0;color:var(--pc);z-index:2;transition:transform .12s;display:grid;place-items:center;font-weight:800}
+.up .stem{top:calc(var(--ay) - 30px);height:30px}.dn .stem{top:var(--ay);height:30px}
+.it:first-child .seg{left:50%}.it:last-child .seg{right:50%}
+.node{position:absolute;left:50%;top:var(--ay);transform:translate(-50%,-50%);width:26px;height:26px;border-radius:50%;background:#fff;border:6px solid var(--pc);padding:0;color:var(--pc);z-index:2;transition:transform .12s;display:grid;place-items:center;font-weight:800}
 .node:hover{transform:translate(-50%,-50%) scale(1.18)}
 .node.ev.seen{background:var(--pc)}
-.node.ev.seen::after{content:"✓";color:#fff;font:800 13px system-ui;margin-top:-1px}
-.node.gate,.node.finish{width:52px;height:52px;border-width:0;background:var(--pc);color:#fff;font-size:1.5rem;box-shadow:0 0 0 6px #fff,0 6px 16px rgba(27,36,64,.3)}
+.node.ev.seen::after{content:"✓";color:#fff;font:800 12px system-ui;margin-top:-1px}
+.node.gate,.node.finish{width:40px;height:40px;border-width:0;background:var(--pc);color:#fff;font-size:1.2rem;box-shadow:0 0 0 5px #fff}
 .node.finish{background:var(--ink)}
-.card{position:absolute;left:50%;transform:translateX(-50%);width:276px;background:#fff;border-radius:18px;box-shadow:0 8px 24px rgba(27,36,64,.14);overflow:hidden;cursor:pointer;border-bottom:6px solid var(--pc);transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateX(-50%) translateY(-4px);box-shadow:0 14px 30px rgba(27,36,64,.22)}
-.up .card{bottom:calc(var(--ih) - var(--ay) + 36px)}.dn .card{top:calc(var(--ay) + 36px)}
-.cart svg{display:block;width:100%;height:auto}
-.cardb{padding:11px 15px 13px}
-.cardb h3{margin:7px 0 4px;font-size:1.08rem;line-height:1.2}
-.cardb p{margin:0 0 9px;font-size:.9rem;line-height:1.4;color:#3d4766}
-.pill{display:inline-block;background:var(--ps);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.03em;padding:3px 11px;border-radius:999px}
+.card{position:absolute;left:50%;transform:translateX(-50%);width:188px;background:#fff;border-radius:16px;box-shadow:0 4px 14px rgba(27,36,64,.12);overflow:hidden;cursor:pointer;border-bottom:5px solid var(--pc);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateX(-50%) translateY(-3px);box-shadow:0 10px 22px rgba(27,36,64,.2)}
+.up .card{bottom:calc(var(--ih) - var(--ay) + 30px)}.dn .card{top:calc(var(--ay) + 30px)}
+.cart{position:relative}.cart svg{display:block;width:100%;height:auto}
+.cardb{padding:9px 13px 13px}
+.cardb h3{margin:6px 0 0;font-size:1.02rem;line-height:1.22}
+.pill{display:inline-block;background:var(--ps);color:var(--ink);font-weight:800;font-size:.74rem;letter-spacing:.03em;padding:3px 10px;border-radius:999px}
 .pill.big{font-size:.9rem;padding:5px 14px;background:var(--pc);color:#fff}
-.tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.card.gate,.card.finish{background:#fff}
-.gatehd{display:flex;gap:12px;align-items:center;background:var(--pc);color:#fff;padding:14px 16px}
+.gatehd{display:flex;gap:11px;align-items:center;background:var(--pc);color:#fff;padding:14px 14px}
 .gatehd.fin{background:var(--ink)}
-.gico{font-size:1.9rem}.gk{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.9;font-weight:800}
-.gatehd h3{margin:2px 0 0;font-size:1.05rem;line-height:1.2}
-.gq{margin:0;padding:12px 16px 0 34px;font:600 .86rem/1.35 system-ui,sans-serif;color:#3d4766}
-.gq li{margin-bottom:5px}.gq li.ok{color:#0b6f65;text-decoration:line-through;text-decoration-thickness:1px}
-.gprog{display:flex;align-items:center;gap:6px;padding:4px 16px 8px}
-.dot{width:14px;height:14px;border-radius:50%;border:3px solid var(--pc);background:#fff}.dot.ok{background:var(--pc)}
+.gico{font-size:1.6rem}.gk{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;opacity:.9;font-weight:800}
+.gatehd h3{margin:2px 0 0;font-size:1rem;line-height:1.2}
+.gprog{display:flex;align-items:center;gap:6px;padding:10px 14px 12px;min-height:20px}
+.dot{width:13px;height:13px;border-radius:50%;border:3px solid var(--pc);background:#fff}.dot.ok{background:var(--pc)}
 .gtxt{font:700 .78rem system-ui;color:var(--muted);margin-left:4px}
-.gbtn{display:block;padding:9px 16px 14px;font:800 .88rem system-ui;color:var(--pc)}
-.finp{padding:12px 16px 0;margin:0;font-size:.9rem;color:#3d4766}
+.finp{padding:10px 14px 12px;margin:0;font:700 .85rem system-ui,sans-serif;color:var(--muted)}
 /* overlays */
 .ov{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:18px}
 .scrim{position:absolute;inset:0;background:rgba(17,23,48,.66)}
@@ -103,12 +94,11 @@ button{font:inherit;cursor:pointer}
 .x:hover{background:rgba(255,255,255,.35)}
 .pbody{display:grid;grid-template-columns:minmax(300px,1fr) 1.2fr;gap:28px;padding:22px 26px;overflow:auto}
 .pbody.one{grid-template-columns:1fr;max-width:820px;margin:0 auto;width:100%}
-.pl .art{border-radius:16px;overflow:hidden;box-shadow:0 6px 22px rgba(27,36,64,.18);border:5px solid var(--ps)}
+.pl .art{border-radius:16px;overflow:hidden}
+.pos{margin-top:10px;font:600 .85rem system-ui,sans-serif;color:var(--muted)}
 .art svg{display:block;width:100%;height:auto}
 .pr h2{font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.1;margin:10px 0 12px;letter-spacing:-.02em}
 .pr p{margin:0 0 .85em}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.chip{background:var(--ps);border-radius:999px;padding:4px 13px;font-size:.82rem;font-weight:700}
 .lens{background:var(--ps);border-left:6px solid var(--pc);border-radius:12px;padding:12px 16px;margin:16px 0}
 .lens h4{margin:2px 0 4px;font-size:1.02rem}.lens p{margin:0 0 9px;font-size:.96rem}
 .lk{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--pc)}
@@ -202,38 +192,42 @@ button,.btn,.tb,.rung,.gbtn,.x,.link,summary,.moments button{font-family:system-
   #cover{grid-template-columns:1fr;padding:30px 20px}#cvart{height:340px}#cvart>div{width:64%}
   .pbody,.ws2{grid-template-columns:1fr;padding:16px}.two{grid-template-columns:1fr}
   #tl{flex-direction:column;padding:6px 18px 50px;min-width:0}
-  .it{width:auto;height:auto;padding:0 0 26px 58px;scroll-snap-align:none}
-  .seg,.it:first-child .seg,.it:last-child .seg{left:22px;right:auto;top:0;bottom:0;width:8px;height:auto}
-  .stem{display:none}.node{left:26px;top:20px}
-  .card,.up .card,.dn .card{position:static;transform:none;width:100%}.card:hover{transform:none}
+  .it{width:auto;height:auto;padding:0 0 22px 56px;scroll-snap-align:none}
+  .stem{display:none}
+  .seg,.it:first-child .seg,.it:last-child .seg{left:22px;right:auto;top:0;bottom:0;width:6px;height:auto}
+  .node{left:25px;top:22px}
+  .card,.up .card,.dn .card{position:static;transform:none;width:100%;display:grid;grid-template-columns:116px 1fr;align-items:center}.card:hover{transform:none}
+  .card.gate,.card.finish{display:block}
   .pg .bar{display:none}.brand span{display:none}
   .check li{grid-template-columns:24px 1fr auto}.check li .btn{grid-column:2/4}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-/* videos */
-.vbadge{position:absolute;top:10px;right:10px;background:#101830;color:#fff;font:800 .72rem system-ui,sans-serif;letter-spacing:.04em;padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.35)}
-.cart{position:relative}
-.vids{margin:18px 0 6px}
-.vids .lk{margin-bottom:8px}
-.vid{border:2px solid var(--ps);border-radius:14px;overflow:hidden;margin:0 0 12px;background:#fff}
+/* videos and collapsible sections */
+.vbadge{position:absolute;top:8px;right:8px;width:26px;height:26px;display:grid;place-items:center;background:#101830;color:#fff;font:800 .7rem system-ui,sans-serif;border-radius:50%;padding-left:2px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.dd{border:2px solid var(--ps);border-radius:12px;margin:12px 0;background:#fff}
+.dd summary{cursor:pointer;padding:11px 15px;font:800 .95rem system-ui,sans-serif;color:var(--ink);list-style:none}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary::after{content:"＋";float:right;color:var(--pc)}.dd[open] summary::after{content:"－"}
+.dd[open] summary{border-bottom:2px solid var(--ps)}
+.ddb{padding:12px 15px 6px}.ddb p{margin:0 0 .7em;font-size:.95rem}
+.vid{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 10px;background:#fff}
 .vplayer{background:#101830}
-.vbtn{display:flex;align-items:center;gap:16px;width:100%;min-height:118px;padding:18px 20px;border:0;color:#fff;text-align:left;background:linear-gradient(135deg,#1b2440,#3a4778)}
+.vbtn{display:flex;align-items:center;gap:14px;width:100%;min-height:76px;padding:12px 16px;border:0;color:#fff;text-align:left;background:linear-gradient(135deg,#1b2440,#3a4778);font:800 1rem system-ui,sans-serif}
 .vbtn:hover{filter:brightness(1.12)}
-.vplay{flex:none;width:58px;height:58px;border-radius:50%;background:#fff;color:var(--pc);display:grid;place-items:center;font-size:1.5rem;padding-left:4px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
-.vlab b{display:block;font-size:1.1rem}.vlab small{opacity:.85;font-size:.8rem}
+.vplay{flex:none;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--pc);display:grid;place-items:center;font-size:1.1rem;padding-left:3px}
 .vframe{position:relative;padding-top:56.25%;background:#000}
 .vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vinfo{padding:10px 14px 4px}
-.vt{display:block;font:800 .98rem/1.3 system-ui,sans-serif}
-.vsrc{display:block;font:700 .78rem system-ui,sans-serif;color:var(--muted);margin:2px 0 4px}
-.vn{margin:4px 0 6px;font-size:.93rem}
-.vwarn{margin:4px 0 6px;font:600 .82rem/1.35 system-ui,sans-serif;color:#8a4b00;background:#fff3cd;border-radius:8px;padding:5px 9px}
-.vlink{display:block;padding:6px 14px 11px;font:700 .85rem system-ui,sans-serif}
-.vlink.big{display:inline-block;margin:2px 14px 12px;background:var(--pc);color:#fff;border-radius:999px;padding:8px 16px;text-decoration:none}
-.vlink.big:hover{filter:brightness(1.1)}
-.vnote{font:600 .8rem/1.4 system-ui,sans-serif;color:var(--muted);margin:2px 0 0}
+.vinfo{padding:9px 13px 2px}
+.vt{display:block;font:800 .92rem/1.3 system-ui,sans-serif}
+.vsrc{display:block;font:700 .76rem system-ui,sans-serif;color:var(--muted);margin:2px 0 4px}
+.vlink{display:block;padding:4px 13px 10px;font:700 .82rem system-ui,sans-serif}
+.vlink.big{display:inline-block;margin:2px 13px 11px;background:var(--pc);color:#fff;border-radius:999px;padding:7px 15px;text-decoration:none}
+.vnote{font:600 .78rem system-ui,sans-serif;color:var(--muted)}
 .vsrc2{color:var(--muted);font-size:.85rem}
+@media (max-width:560px){.pg{display:none}}
+#tlwrap{padding-top:max(20px,calc((100vh - 640px)/3))}
+@media (max-width:900px){#tlwrap{padding-top:0}}
 
 </style>
 </head>
@@ -256,8 +250,7 @@ button,.btn,.tb,.rung,.gbtn,.x,.link,summary,.moments button{font-family:system-
 </section>
 
 <main id="app" hidden>
- <div class="strip"><span><b class="dk">Scroll sideways</b><b class="mb">Scroll down</b> or use the arrow keys. Tap any card to open it.</span>
-  <span class="legend"><span><i style="background:#0f9d8f"></i>Part 1</span><span><i style="background:#6c5ce7"></i>Part 2</span><span><i style="background:#ef5b5b"></i>Part 3</span></span></div>
+ <div class="strip"><span><b class="dk">Scroll sideways</b><b class="mb">Scroll down</b> and tap a card to open it.</span></div>
  <div id="tlwrap"><div id="tl" role="list" aria-label="Timeline of the Amber Guyger case"></div></div>
 </main>
 
@@ -297,105 +290,104 @@ var QTOTAL=0;PARTS.forEach(function(p){QTOTAL+=p.qs.length;});
 var EVENTS=[
 {id:"e1",part:1,date:"Sept. 6, 2018",title:"The wrong apartment",art:"shooting",
  teaser:"An off-duty officer enters the wrong unit, and a man is killed in his own home.",
- body:["Amber Guyger, 30, a Dallas police officer, came home to the South Side Flats apartments in uniform after a very long shift (reports say roughly 13 to 15 hours). She parked on the fourth floor of the garage instead of the third and walked to apartment 1478. Her own apartment, 1378, was directly below it.",
-       "Inside was Botham Jean, 26, an accountant from St. Lucia who was active in his church choir. He was on his couch. The door was unlocked and partly open, and Guyger said she believed she had walked in on a burglar in her own home. She fired twice, and one shot hit Jean in the chest. She called 911. Jean died at a hospital."],
+ body:["Off-duty Dallas officer Amber Guyger, 30, came home in uniform after a very long shift. She parked on the fourth floor of the garage instead of the third and went to apartment 1478. Her own apartment, 1378, was directly below.",
+       "Inside, Botham Jean, 26, an accountant from St. Lucia, was on his couch. Guyger said the door was partly open and she thought she had found a burglar in her home. She fired twice, and one shot hit Jean in the chest. He died at a hospital."],
  facts:["Botham Jean, 26","South Side Flats, Dallas","Floor 3 (hers) and floor 4 (his)"],
  law:{t:"Two questions drive this case",x:"Texas murder law looks closely at a person’s mental state: did she intend to cause a death, act recklessly, or fail to notice a risk? And did she reasonably believe she was in danger? These questions return in every part of the case.",tool:"ladder"},
  src:["FOX 4 Dallas-Fort Worth","UPI","CourtDocket","AP via WPTZ"]},
 {id:"e2",part:1,date:"Sept. 9, 2018",title:"Arrested for manslaughter",art:"arrest",
  teaser:"Three days later, the first charge is manslaughter, not murder.",
- body:["Three days after the shooting, Guyger turned herself in and was arrested in Kaufman County on a charge of manslaughter, based on a warrant obtained by a Texas Ranger (the state investigators who took over the case). She posted a $300,000 bond, and the Dallas Police Department placed her on paid leave.",
-       "The charge drew protests and questions: why not murder? Manslaughter is committed by recklessly causing a death. That is a lower mental state than murder, which requires an intentional or knowing killing (or another definition in the law)."],
+ body:["Three days later, Guyger turned herself in and was arrested on a charge of manslaughter, based on a warrant from a Texas Ranger. She posted a $300,000 bond.",
+       "Manslaughter means recklessly causing a death, a lower mental state than murder. The charge drew protests and a question: why not murder?"],
  facts:["Charge: manslaughter","Range: 2 to 20 years","Mental state: reckless","Bond: $300,000"],
  law:{t:"Manslaughter (Penal Code §19.04)",x:"A person commits manslaughter by recklessly causing a death. It is a second-degree felony, punishable by 2 to 20 years. “Reckless” means being aware of a substantial, unjustifiable risk and consciously ignoring it.",tool:"ladder"},
  src:["WFAA timeline","The Dallas Morning News","CNN","Wikipedia: Murder of Botham Jean"]},
 {id:"e3",part:1,date:"Sept. 24, 2018",title:"Fired from the force",art:"fired",
  teaser:"The Dallas Police Department ends her employment, a separate matter from the criminal case.",
- body:["Eighteen days after the shooting, the Dallas Police Department fired Guyger. Losing a job is an employment decision. It is separate from the criminal case, which continued."],
+ body:["Eighteen days after the shooting, the Dallas Police Department fired Guyger. Losing a job is separate from the criminal case, which continued."],
  facts:["Employment decision","18 days after the shooting"],
  src:["FOX 4 Dallas-Fort Worth"]},
 {id:"e4",part:1,date:"Nov. 30, 2018",title:"Indicted for murder",art:"indict",
  teaser:"A grand jury raises the case from manslaughter to murder.",
- body:["On November 30, 2018, a Dallas County grand jury indicted Guyger for murder after hearing evidence on two days that week. A grand jury does not decide guilt. It decides whether there is enough evidence for a case to go forward to trial.",
-       "Murder in Texas requires that a person intentionally or knowingly caused the death (or met another definition in the law). District Attorney Faith Johnson said her office thought it was murder “all along.” Guyger’s attorney, Robert Rogers, said it was “a tragic mistake,” not a crime of intent."],
+ body:["On November 30, 2018, a Dallas County grand jury indicted Guyger for murder. A grand jury does not decide guilt. It decides whether a case goes to trial.",
+       "The District Attorney said her office thought it was murder “all along.” Guyger’s lawyer called it “a tragic mistake.”"],
  facts:["Charge: murder","Range: 5 to 99 years or life","Mental state: intentional or knowing"],
  law:{t:"Texas has no “first-degree” or “second-degree” murder",x:"Most states split murder into degrees. Texas has one offense called murder, plus capital murder for specific circumstances. See “Texas vs. most states” in the Toolkit.",tool:"states"},
  src:["WFAA","The Texas Tribune","FOX 4","Wikipedia: Murder of Botham Jean"]},
 {id:"e5",part:2,date:"Sept. 23, 2019",title:"The trial begins",art:"court",
  teaser:"Prosecutors and the defense tell two very different stories about the same night.",
- body:["About a year later, the trial began in Dallas County’s 204th District Court before Judge Tammy Kemp. The jury was sequestered, which means kept apart from outside news.",
-       "Prosecutors said Guyger made a series of unreasonable decisions and missed clear signs she was in the wrong place, such as the floor number and a bright red doormat. The defense said she was exhausted, that the floors and doors looked alike, and that she honestly believed she was in danger in her own home. A Texas Ranger testified that, of the 297 residents his team interviewed, 46 had at some point gone to the wrong floor or tried a key in the wrong door."],
+ body:["About a year later, the trial began in Dallas County before Judge Tammy Kemp, with the jury sequestered.",
+       "Prosecutors said Guyger made unreasonable errors and missed clear signs, like the floor number and a bright red doormat. The defense said she was exhausted, the floors looked alike, and she honestly believed she was in danger in her own home."],
  facts:["Judge: Tammy Kemp","Dallas County, 204th District Court","Jury sequestered"],
  src:["ABC News","FindLaw","The Dallas Morning News"]},
 {id:"e6",part:2,date:"Sept. 27, 2019",title:"Guyger takes the stand",art:"stand",
  teaser:"Her own words about what she meant to do become a key issue.",
- body:["Guyger testified, in tears, that she believed she was in her own apartment and was afraid for her life. Jurors also heard her 911 call, in which she said again and again that she thought it was her apartment. A prosecutor asked her to picture the moment from Jean’s side: a stranger coming into his home.",
-       "After the trial, two jurors said her testimony that she had decided to stop the “threat” by shooting made the question of intent easy for them."],
+ body:["Guyger took the stand and, in tears, said she believed she was in her own apartment and feared for her life. Prosecutors asked her to picture the moment from Jean’s side.",
+       "After the trial, two jurors said her own testimony that she meant to stop the “threat” by shooting made the question of intent easy."],
  facts:["Defense theory: an honest, reasonable mistake","Prosecution theory: an unreasonable mistake"],
  law:{t:"Mistake of fact and mental state",x:"Murder requires an intentional or knowing killing. The defense argued a mistaken belief that she was in her own home explained her actions. Texas law (Penal Code §8.02) can excuse a reasonable mistake if it cancels out the mental state the crime requires. Prosecutors argued her mistake was not reasonable.",tool:"ladder"},
  src:["FOX 13 / Dallas Morning News","NBC News (juror interview)","CourtDocket"]},
 {id:"e7",part:2,date:"Sept. 30, 2019",title:"Instructions to the jury",art:"jury",
  teaser:"The judge lets jurors weigh the Castle Doctrine and a lesser offense.",
- body:["Before deliberations, Judge Kemp allowed jurors to consider the Castle Doctrine and the lesser offense of manslaughter. The Castle Doctrine is a Texas law that presumes it is reasonable to use deadly force against someone who unlawfully and with force enters your occupied home. The prosecution said it protects homeowners like Jean, not a person who walks into the wrong home. The defense said that in her mind she was defending her own home.",
-       "The judge told jurors that if they were torn between murder and manslaughter, they should lean toward the lesser charge. Hours into deliberations the jury asked for clearer explanations of manslaughter and the Castle Doctrine."],
+ body:["Judge Kemp let jurors consider the Castle Doctrine and the lesser offense of manslaughter. The Castle Doctrine presumes it is reasonable to use deadly force against someone who unlawfully and with force enters your home.",
+       "The defense said she was defending her home. The prosecution said the law protects homeowners like Jean. The judge told jurors that if torn between murder and manslaughter, they should lean toward the lesser charge."],
  facts:["Options: murder or manslaughter","Castle Doctrine allowed as a defense"],
  law:{t:"The Castle Doctrine, in plain English",x:"Passed in 2007 (Penal Code §9.32). If someone unlawfully and with force enters your occupied home, vehicle or workplace, the law presumes your belief that deadly force was needed was reasonable, as long as you did not provoke the person and were not committing a crime.",tool:"castle"},
  src:["ABC News","FOX 13 Memphis","KIRO 7 News","Texas Penal Code §9.32"]},
 {id:"e8",part:2,date:"Oct. 1, 2019",title:"Guilty of murder",art:"verdict",
  teaser:"After hours of deliberation, the jury returns its verdict.",
- body:["On October 1, 2019, after roughly five to six hours of deliberation over two days, the jury found Guyger guilty of murder “as charged in the indictment.” The judge had given jurors three choices: murder, manslaughter, or not guilty. By convicting of murder, the jury rejected manslaughter and decided the Castle Doctrine did not justify what she did.",
-       "Jean’s mother raised her hands in thanks. Guyger wept at the defense table. She was the first Dallas police officer convicted of murder since 1973. Because Texas juries can also decide punishment, the jury stayed to hear evidence about the sentence."],
+ body:["On October 1, 2019, after roughly five to six hours over two days, the jury found Guyger guilty of murder. Jurors could have chosen manslaughter or not guilty. They rejected the Castle Doctrine.",
+       "She was the first Dallas officer convicted of murder since 1973. The same jury then decided her punishment."],
  facts:["Verdict: guilty of murder","Deliberation: about 5 to 6 hours over 2 days","Next: the sentencing phase"],
  src:["ABC News","CBS Texas","Wikipedia: Murder of Botham Jean","HuffPost"]},
 {id:"e9",part:3,date:"Oct. 2, 2019",title:"Ten years",art:"sentence",
  teaser:"The jury picks a sentence far below what prosecutors asked for.",
- body:["In Texas, a defendant can choose to have the jury, instead of the judge, decide punishment. Guyger’s jury did. The range for murder is 5 to 99 years or life. The judge also asked jurors whether Guyger acted under “sudden passion,” which would have lowered the range to 2 to 20 years. They decided she had not.",
-       "Prosecutors asked for at least 28 years, the age Jean would have turned that week. Jurors saw texts and social media posts prosecutors said showed bias and a disregard for life, heard from Jean’s parents and from Guyger’s family and friends, and returned a sentence of 10 years after roughly one to two hours of deliberation (reports vary). Then Jean’s 18-year-old brother, Brandt, told Guyger he forgave her and asked to hug her. The judge allowed it. Some called the moment healing. Others said the sentence was far too short."],
+ body:["In Texas, a defendant can choose to have the jury decide punishment, and Guyger’s did. Murder carries 5 to 99 years or life. Jurors were also asked about “sudden passion,” which would have lowered the range to 2 to 20 years, and said no.",
+       "Prosecutors asked for at least 28 years. The jury chose 10. Then Jean’s 18-year-old brother, Brandt, told Guyger he forgave her and asked to hug her. Some called it healing. Others said the sentence was far too short."],
  facts:["Range: 5 to 99 years or life","Prosecutors asked: 28 years or more","Sentence: 10 years","Parole eligible after 5 years"],
  law:{t:"How typical was 10 years?",x:"Open the Sentencing tab in the Toolkit to see 10 years next to the legal range, the prosecutors’ request, and other Texas cases.",tool:"sentence"},
  src:["Texas Tribune","CBS News","HuffPost","NBC News","ABC News","WFAA"]},
 {id:"e10",part:3,date:"2019 to 2022",title:"The appeals",art:"appeal",
  teaser:"Three levels of Texas courts decline to undo the conviction.",
- body:["Guyger’s lawyers appealed. They argued the evidence did not support murder and asked for an acquittal or a conviction for criminally negligent homicide, a much lower offense (180 days to 2 years).",
-       "In August 2021, a three-judge panel of the Fifth Court of Appeals unanimously upheld the conviction, reasoning that being mistaken about whose apartment it was did not turn an intentional or knowing act into mere negligence. The court again upheld the conviction after a rehearing request in November 2021. In March 2022 the Texas Court of Criminal Appeals, the state’s highest criminal court, refused to hear her petition. Two of its judges wrote dissenting opinions."],
+ body:["Her lawyers appealed, asking for an acquittal or a lesser offense (criminally negligent homicide). In 2021 the Fifth Court of Appeals unanimously upheld the conviction, saying a mistake about whose apartment it was did not turn an intentional act into negligence.",
+       "In March 2022 the state’s highest criminal court refused to hear her petition."],
  facts:["Court of Appeals: August 2021","Rehearing denied: November 2021","Highest court refused review: March 2022"],
  src:["CBS News (AP)","FOX 4","WFAA","Wikipedia: Murder of Botham Jean"]},
 {id:"e11",part:3,date:"2021",title:"Bo’s Law",art:"bodycam",
  teaser:"Texas passes the Botham Jean Act about police body cameras.",
- body:["In 2021, Texas lawmakers passed the Botham Jean Act, known as Bo’s Law. Governor Greg Abbott signed it on June 16, 2021, and it took effect September 1, 2021. It requires officers to keep their body cameras on for the entire time they take part in an investigation.",
-       "An earlier version of the bill would also have clarified the Castle Doctrine, but the final law dealt only with body cameras. That year Dallas also renamed part of Lamar Street Botham Jean Boulevard."],
+ body:["In 2021, Texas passed the Botham Jean Act, “Bo’s Law.” It requires officers to keep body cameras on for the whole time they take part in an investigation, and took effect September 1, 2021. Dallas also renamed part of Lamar Street Botham Jean Boulevard."],
  facts:["Policy change","Body cameras on for the whole investigation","Took effect Sept. 1, 2021"],
  src:["WFAA","Spectrum News","The Dallas Morning News"]},
 {id:"e12",part:3,date:"Nov. 2024",title:"A civil judgment",art:"civil",
  teaser:"A separate lawsuit asks for money, not prison time.",
- body:["In a separate civil lawsuit (a federal civil rights case, not the criminal trial), a federal jury awarded Jean’s family about $98.65 million against Guyger in November 2024: roughly $60 million in punitive damages and $38.65 million in compensatory damages. Guyger did not take part in the trial. Civil cases decide who owes money. They do not decide prison time.",
-       "The City of Dallas was dropped from that suit earlier. In March 2026 the family sued the city separately, arguing its employee liability plan should cover the judgment. As of October 2026 reporting, that lawsuit was still pending."],
+ body:["In a separate federal civil lawsuit, a jury awarded Jean’s family about $98.65 million against Guyger in November 2024. Civil cases decide who owes money, not prison time.",
+       "In March 2026 the family sued the City of Dallas to cover the judgment. As of October 2026 that case was pending."],
  facts:["Federal civil case, not criminal","About $98.65 million","City lawsuit pending (Oct. 2026)"],
  src:["FOX 4","WFAA","The Christian Chronicle","The Dallas Morning News"]},
 {id:"e13",part:3,date:"Oct. 10, 2024",title:"First parole review: denied",art:"denied",
  teaser:"At the halfway point she becomes eligible. Her request is turned down.",
- body:["Because murder is a “3(g)” offense in Texas, a person must serve at least half the sentence, with no credit for good behavior toward that half, before becoming eligible for parole. For Guyger that meant five years. On October 10, 2024, the Texas Board of Pardons and Paroles denied her request and set her next review for October 2026.",
-       "Jean’s family and the Dallas County District Attorney’s office opposed release, and an online petition against parole gathered more than 6,000 signatures. A parole commissioner had interviewed the family three days earlier."],
+ body:["Murder is a “3(g)” offense in Texas, so she had to serve at least half her sentence, five years, before she could be considered for parole. On October 10, 2024, the Board of Pardons and Paroles denied it.",
+       "Jean’s family and the Dallas County District Attorney’s office opposed her release."],
  facts:["Eligible after 5 years (half)","Denied Oct. 10, 2024","Next review: Oct. 2026"],
  law:{t:"Parole is discretionary",x:"Being eligible does not mean being released. The Texas Board of Pardons and Paroles decides, using guidelines and the case record. It does not retry the case.",tool:"parole"},
  src:["WFAA","CBS Texas","FOX 4","NBC News","Texas Government Code §508.145"]},
 {id:"e14",part:3,date:"Oct. 1, 2026",title:"Parole granted",art:"granted",
  teaser:"Seven years to the day after the verdict, the Board approves parole.",
- body:["After a hearing on September 25, 2026, where Jean’s family spoke against release, the Texas Board of Pardons and Paroles granted Guyger parole on October 1, 2026, exactly seven years after the verdict.",
-       "The Board said she had no documented pattern of violent or assaultive arrests or convictions, had a satisfactory record in prison, and had completed programs meant to help her find and keep a full-time job. The family’s attorney said they had hoped she would serve the full sentence and called for sentencing enhancements for law enforcement officers who take a life. The Dallas Police Department said the decision was the Board’s alone."],
+ body:["On October 1, 2026, seven years to the day after the verdict, the Board granted parole after a hearing where Jean’s family spoke against release.",
+       "It cited no pattern of violent arrests or convictions, a satisfactory prison record, and job-readiness programs. The family had hoped she would serve the full sentence."],
  facts:["Granted: Oct. 1, 2026","Served: about 70% of the sentence","Family opposed release"],
  law:{t:"Parole is not a pardon",x:"Parole lets a person serve the rest of a prison sentence in the community under supervision and rules. Breaking the rules can send a person back to prison.",tool:"parole"},
  src:["CBS Texas","KERA","The Dallas Morning News","NBC News"]},
 {id:"e15",part:3,date:"Oct. 16, 2026",title:"Released on parole",art:"released",
  teaser:"She leaves the Gatesville prison to finish her sentence under supervision.",
- body:["On October 16, 2026, Guyger left the Christina Melton Crain Unit in Gatesville after about seven years in prison. She will spend the rest of her 10-year sentence in the community under parole supervision, until it expires in 2029.",
-       "According to the Texas Department of Criminal Justice, as reported by CBS Texas, her conditions include regular check-ins, home visits and employment requirements. She may not live in Dallas County, contact Jean’s family or Dallas police officers, or leave Texas without approval. Her former trial attorney said she remains remorseful and has housing and work arranged. The Jean family asked for privacy."],
+ body:["On October 16, 2026, Guyger left the Gatesville prison after about seven years. She will serve the rest of her sentence, until 2029, on parole.",
+       "Reported conditions: she may not live in Dallas County, contact Jean’s family or Dallas police officers, or leave Texas without approval."],
  facts:["Seven of ten years served","Parole supervision until 2029","No Dallas County; no contact with Jean’s family"],
  src:["CBS Texas","NBC News","FOX 4","UPI"]},
 {id:"e16",part:3,date:"Today",title:"What is still unsettled",art:"today",
  teaser:"The law has spoken. The questions are still open.",
- body:["As of the latest reporting we found (October 2026), Guyger is on parole, with supervision continuing until her sentence expires in 2029, and the Jean family’s lawsuit against the City of Dallas is pending. The case still divides people: about how Texas law defines murder, about police accountability, and about whether 10 years, and 7 of them served, is justice.",
-       "That is why you are being asked what you think. Use the facts, use the law, and explain your reasoning."],
+ body:["As of October 2026, Guyger is on parole and the Jean family’s lawsuit against Dallas is pending. People still disagree about how Texas defines murder, about police accountability, and about whether 10 years, with 7 served, is justice.",
+       "Now it is your turn. Use the facts and the law to explain what you think."],
  facts:["On parole until 2029","City lawsuit pending (Oct. 2026)"],
  src:["CBS Texas","The Dallas Morning News"]}
 ];
@@ -422,26 +414,26 @@ var STATES=[
    ok = the publisher is confirmed by the outlet's own page or by the title or description. */
 var VIDEOS={
  e1:[{u:"https://www.wfaa.com/video/news/local/the-amber-guyger-interview-jurors-didnt-see/287-cfe9cb71-7bf5-48f7-8901-7a68ff6f31a3",t:"The Amber Guyger interview jurors didn’t see",s:"WFAA",d:"Feb. 2020",ok:1,
-  n:"Guyger’s interview with investigators, less than 24 hours after the shooting. The jury never saw it. Ask yourself what it adds to your decision on charges.",w:"Length not confirmed. Teachers: preview before assigning."}],
+  n:"Guyger’s interview with investigators, less than 24 hours after the shooting. The jury never saw it. Ask yourself what it adds to your decision on charges."}],
  e3:[{u:"https://www.nbcnews.com/nightly-news/video/dallas-police-department-fires-officer-after-manslaughter-charges-1328193603788",t:"Dallas police department fires officer after manslaughter charges",s:"NBC News Nightly News",d:"Sept. 24, 2018 · 0:56",ok:1,n:"A short report on the firing and why the department cited “adverse conduct.”"},
      {u:"https://www.fox4news.com/video/497278",t:"Dallas PD fires Officer Amber Guyger over Botham Jean shooting",s:"FOX 4 Dallas-Fort Worth",d:"Sept. 24, 2018",ok:1,n:"Local coverage of the firing, with reaction from the community."}],
  e5:[{yt:"qDVaQv1OMys",t:"Amber Guyger Trial Prosecution Opening Statement",s:"Law&Crime Network (same series as the defense opening)",d:"Sept. 23, 2019",ok:0,
-  n:"The state lays out its case. Notice what it says Guyger should have noticed.",w:"Long courtroom video that may describe the shooting in detail. Teachers: preview first."},
+  n:"The state lays out its case. Notice what it says Guyger should have noticed."},
      {yt:"Ivg11PZUKd8",t:"Amber Guyger Trial Defense Opening Statement",s:"Law&Crime Network",d:"Sept. 23, 2019",ok:1,
-  n:"The defense tells a different story about the same night. Compare the two openings.",w:"Long courtroom video. Teachers: preview first."}],
+  n:"The defense tells a different story about the same night. Compare the two openings."}],
  e6:[{yt:"c72_lj4p4r0",t:"Former police officer delivers emotional testimony about night of deadly shooting",s:"ABC News",d:"Sept. 28, 2019",ok:1,
   n:"Guyger testifies in her own defense. Listen for what she says about her intent."},
      {yt:"LEncVY1L_K4",t:"Ex-Dallas Officer Testifies At Her Murder Trial For Fatally Shooting Neighbor",s:"NBC Nightly News",d:"Sept. 28, 2019",ok:1,
   n:"A second report on her testimony, including how prosecutors questioned her."}],
  e7:[{yt:"gk7ArfokWRo",t:"Judge Tammy Kemp reads jury instructions in Amber Guyger trial",s:"WFAA",d:"Sept. 30, 2019",ok:1,
-  n:"The judge explains the choices before the jury: murder, manslaughter, or not guilty. Listen for how the law defines each.",w:"Long reading of legal instructions."},
+  n:"The judge explains the choices before the jury: murder, manslaughter, or not guilty. Listen for how the law defines each."},
      {u:"https://www.wfaa.com/video/news/local/amber-guyger-trial-innocent-mistake-or-murder/287-8dc9653d-e234-45b6-8975-2aa506374e4d",t:"Amber Guyger Trial: Innocent mistake or murder?",s:"WFAA",d:"Sept. 30, 2019",ok:1,n:"A summary of the closing arguments, as jurors began to decide."}],
- e8:[{u:"https://www.washingtonpost.com/video/national/watch-the-moment-amber-guygers-guilty-verdict-is-read-in-court/2019/10/01/ff60267b-1102-4754-9302-f9d1de3ffc2e_video.html",t:"Watch the moment Amber Guyger’s guilty verdict is read in court",s:"The Washington Post",d:"Oct. 1, 2019",ok:1,n:"The courtroom as the verdict is read.",w:"The Post may ask you to log in."},
-     {yt:"k-qSB8HYALk",t:"VIDEO: Judge reads Amber Guyger guilty verdict",s:"News video on YouTube (publisher not confirmed)",d:"Oct. 1, 2019",ok:0,n:"The same moment, as shown by a news broadcast.",w:"Emotional courtroom moment."}],
+ e8:[{u:"https://www.washingtonpost.com/video/national/watch-the-moment-amber-guygers-guilty-verdict-is-read-in-court/2019/10/01/ff60267b-1102-4754-9302-f9d1de3ffc2e_video.html",t:"Watch the moment Amber Guyger’s guilty verdict is read in court",s:"The Washington Post",d:"Oct. 1, 2019",ok:1,n:"The courtroom as the verdict is read."},
+     {yt:"k-qSB8HYALk",t:"VIDEO: Judge reads Amber Guyger guilty verdict",s:"News video on YouTube (publisher not confirmed)",d:"Oct. 1, 2019",ok:0,n:"The same moment, as shown by a news broadcast."}],
  e9:[{yt:"NkoE_GQsbNA",t:"Brandt Jean to Amber Guyger: ‘I forgive you’",s:"ABC News",d:"Oct. 2, 2019",ok:1,
-  n:"Botham Jean’s 18-year-old brother speaks to Guyger after the sentence. Think about how people reacted differently to this moment.",w:"Emotional courtroom moment."}],
+  n:"Botham Jean’s 18-year-old brother speaks to Guyger after the sentence. Think about how people reacted differently to this moment."}],
  e10:[{yt:"Q-X_37kTSxk",t:"Watch Live: Fired Police Officer Amber Guyger Seeks to Overturn Murder Conviction",s:"Law&Crime Network",d:"Apr. 27, 2021",ok:1,
-  n:"The appeals hearing: her lawyer asks for an acquittal or a lesser offense, and the state responds.",w:"Recording of a live hearing, likely long. Teachers: preview first."},
+  n:"The appeals hearing: her lawyer asks for an acquittal or a lesser offense, and the state responds."},
       {u:"https://www.wfaa.com/video/news/crime/court-of-appeals-upholds-amber-guygers-murder-conviction-in-death-of-botham-jean/287-8dd41d28-7cc5-463b-8956-7b4d02679ef4",t:"Court of Appeals upholds Amber Guyger’s murder conviction in death of Botham Jean",s:"WFAA",d:"Aug. 5, 2021",ok:1,n:"A short report on the 2021 decision."}],
  e11:[{u:"https://www.khou.com/video/news/local/texas-lawmaker-introduces-bos-law-to-clarify-castle-doctrine-make-it-an-offense-for-officers-to-turn-off-dash-body-cams/287-595d2c84-1239-42a9-8dd8-c529b6640dc9",t:"Texas lawmaker introduces ‘Bo’s Law’ to clarify Castle Doctrine, make it an offense for officers to turn off dash, body cams",s:"KHOU 11",d:"Mar. 2021",ok:1,n:"The first version of the bill. Compare it with what the final law actually did."},
       {yt:"kd6OiWXJdP0",t:"Supporters and critics debate ‘Bo’s Law’ during committee hearing in Austin",s:"Local news report (publisher not confirmed)",d:"Apr. 1, 2021",ok:0,n:"Lawmakers hear both sides of the bill."}],
@@ -468,152 +460,56 @@ function balance(x,y,s,c){return '<g transform="translate('+x+','+y+') scale('+s
  +LN(-62,-48,-82,-4,c,3)+LN(-62,-48,-42,-4,c,3)+PA("M-90,-4 Q-62,22 -34,-4 Z",c)+LN(62,-48,42,-4,c,3)+LN(62,-48,82,-4,c,3)+PA("M34,-4 Q62,22 90,-4 Z",c)+'</g>';}
 function gavel(x,y,s,c,c2){return '<g transform="translate('+x+','+y+') scale('+s+') rotate(-30)">'+R(-34,-16,68,32,c,8)+R(-4,16,8,70,c2,4)+R(-42,-20,10,40,c2,4)+R(32,-20,10,40,c2,4)+'</g>';}
 var ART={};
-ART.shooting=function(){var o="";
- o+=R(0,236,480,64,"#cfd8dc")+R(0,236,480,6,"#b0bec5");
- o+=R(36,70,330,166,"#3b4a6b",4);
- for(var f=0;f<4;f++){for(var c=0;c<5;c++){var wx=62+c*58,wy=84+f*38;o+=R(wx,wy,34,26,"#9db4d6",3);}}
- o+=R(62+58*3,84+38*1,34,26,"#ffd166",3,' stroke="#fff" stroke-width="3"');
- o+=R(62+58*3,84+38*2,34,26,"#ff8a80",3,' stroke="#fff" stroke-width="3"');
- o+=TX(98,20,"The South Side Flats",15,"#1d2b53","start",800);
- o+=TX(20,102+38*1-38*0,"",1,"#fff");
- o+=TX(46,101,"4",14,"#cfe0ff","middle",800)+TX(46,139,"3",14,"#cfe0ff","middle",800)+TX(46,177,"2",14,"#cfe0ff","middle",800)+TX(46,215,"1",14,"#cfe0ff","middle",800);
- o+=PA("M290,108 L330,64 L350,64",'none',' stroke="#ffb300" stroke-width="3" stroke-dasharray="5 4"');
- o+=R(330,48,118,30,"#ffd166",8)+TX(389,68,"Floor 4: unit 1478",12.5,"#3b2a00","middle",800);
- o+=R(330,150,118,30,"#ff8a80",8)+TX(389,170,"Floor 3: unit 1378",12.5,"#4a0d0d","middle",800);
- o+=PA("M290,146 L330,166",'none',' stroke="#ff5252" stroke-width="3" stroke-dasharray="5 4"');
- o+=R(384,196,80,40,"#90a4ae",4)+R(384,196,80,8,"#78909c")+TX(424,226,"P",22,"#fff","middle",800);
- o+=TX(240,282,"Directly above her own front door",13,"#546e7a","middle",700);
- return svgWrap(o,"#e3f2f1","Diagram of an apartment building showing unit 1378 directly below unit 1478");};
-ART.arrest=function(){var o="";
- o+=R(120,24,240,252,"#fff",10,' stroke="#cfd8dc" stroke-width="2"');
- o+=R(120,24,240,46,"#0f9d8f",10)+R(120,52,240,18,"#0f9d8f");
- o+=TX(240,56,"ARREST WARRANT",19,"#fff","middle",800);
- for(var i=0;i<5;i++)o+=R(146,98+i*26,i==4?120:188,10,"#e0e6ea",5);
- o+=C(300,230,34,"#fff3cd",' stroke="#f1b500" stroke-width="3"');
- o+=PA("M300,206 L307,222 L324,222 L310,232 L316,248 L300,238 L284,248 L290,232 L276,222 L293,222 Z","#f1b500");
- o+=R(150,212,128,36,"#fde3e3",8,' stroke="#ef5b5b" stroke-width="3" transform="rotate(-6 214 230)"');
- o+=TX(214,236,"MANSLAUGHTER",15,"#c0392b","middle",800,' transform="rotate(-6 214 230)"');
- return svgWrap(o,"#d9f4f0","An arrest warrant stamped manslaughter");};
-ART.fired=function(){var o="";
- o+=PA("M240,36 L330,66 L330,150 Q330,214 240,258 Q150,214 150,150 L150,66 Z","#90a4ae");
- o+=PA("M240,56 L312,78 L312,148 Q312,200 240,238 Q168,200 168,148 L168,78 Z","#b0bec5");
- o+=PA("M240,92 L252,124 L286,124 L258,144 L268,178 L240,158 L212,178 L222,144 L194,124 L228,124 Z","#eceff1");
- o+=LN(170,70,310,236,"#ef5b5b",12)+LN(310,70,170,236,"#ef5b5b",12,' opacity="0"');
- o+=R(86,246,308,34,"#fff",8,' stroke="#ef5b5b" stroke-width="3"')+TX(240,270,"EMPLOYMENT ENDED, 18 DAYS LATER",14,"#c0392b","middle",800);
- return svgWrap(o,"#e8eef2","A police badge with a red slash");};
-ART.indict=function(){var o="";
- o+=balance(88,150,.72,"#1d2b53");
- o+=R(190,34,230,230,"#fff",10,' stroke="#cfd8dc" stroke-width="2"');
- o+=TX(305,72,"THE STATE OF TEXAS",13,"#546e7a","middle",800)+TX(305,104,"INDICTMENT",24,"#1d2b53","middle",800);
- o+=R(224,124,162,40,"#fde3e3",8)+TX(305,152,"MURDER",24,"#c0392b","middle",800);
- for(var i=0;i<3;i++)o+=R(220,184+i*20,i==2?90:170,9,"#e0e6ea",4);
- o+=C(376,238,22,"#ffd166",' stroke="#f1b500" stroke-width="3"')+TX(376,244,"23",14,"#5d4300","middle",800);
- return svgWrap(o,"#d9f4f0","An indictment document stamped murder");};
-ART.court=function(){var o="";
- o+=R(0,252,480,48,"#d8d2f5");
- o+=PA("M60,98 L240,34 L420,98 Z","#5b4bd1")+R(60,98,360,14,"#4a3cbb");
- for(var i=0;i<6;i++)o+=R(82+i*56,118,26,112,"#f4f1ff",3)+R(78+i*56,112,34,8,"#fff",2)+R(78+i*56,228,34,8,"#fff",2);
- o+=R(50,236,380,16,"#fff",2)+R(34,250,412,14,"#ece8ff",2);
- o+=C(240,76,16,"#ffd166")+TX(240,82,"§",18,"#5d4300","middle",800);
- o+=gavel(420,244,.5,"#8b5a2b","#5d3a1a");
- o+=TX(240,22,"204th District Court, Dallas County",12.5,"#3b2f9e","middle",800);
- return svgWrap(o,"#e6e2fb","A courthouse with columns");};
-ART.stand=function(){var o="";
- o+=R(0,248,480,52,"#d8d2f5");
- o+=R(150,150,180,100,"#a8744a",6)+R(150,142,180,16,"#8b5a2b",4);
- for(var i=0;i<4;i++)o+=R(166+i*42,168,30,70,"#946236",3);
- o+=R(236,92,8,54,"#37474f",3)+C(240,86,12,"#546e7a")+R(226,126,28,6,"#37474f",3);
- o+=PA("M300,34 L450,34 Q462,34 462,46 L462,92 Q462,104 450,104 L378,104 L350,130 L352,104 L300,104 Q288,104 288,92 L288,46 Q288,34 300,34 Z","#fff",' stroke="#6c5ce7" stroke-width="3"');
- o+=TX(375,62,"“I thought it was",14,"#1d2b53","middle",800)+TX(375,84,"my apartment.”",14,"#1d2b53","middle",800);
- o+=R(46,64,64,110,"#37474f",12)+R(54,76,48,70,"#90caf9",4)+C(78,160,5,"#cfd8dc");
- o+=TX(78,196,"911 call",12,"#37474f","middle",800);
- return svgWrap(o,"#e6e2fb","A witness stand and a speech bubble from the 911 call");};
-ART.jury=function(){var o="";
- o+=R(0,236,480,64,"#d8d2f5");
- o+=R(40,160,400,78,"#a8744a",6)+R(40,150,400,14,"#8b5a2b",4);
- var cols=["#ffcc80","#bcaaa4","#ffe0b2","#d7ccc8"];
- for(var r=0;r<2;r++)for(var i=0;i<6;i++){var x=82+i*60,y=96+r*0;if(r==0){o+=C(x,92,16,cols[i%4])+PA("M"+(x-22)+",150 Q"+x+",112 "+(x+22)+",150 Z","#6c5ce7");}}
- o+=R(60,172,360,40,"#fff",8,' opacity=".0"');
- o+=R(48,28,170,54,"#fff",10,' stroke="#6c5ce7" stroke-width="3"')+TX(133,52,"Murder",16,"#c0392b","middle",800)+TX(133,72,"or manslaughter?",13,"#546e7a","middle",700);
- o+=R(262,28,170,54,"#fff",10,' stroke="#6c5ce7" stroke-width="3"')+TX(347,52,"Castle Doctrine",15,"#1d2b53","middle",800)+TX(347,72,"allowed?",13,"#546e7a","middle",700);
- o+=TX(240,196,"12 jurors, sequestered",15,"#fff","middle",800);
- return svgWrap(o,"#e6e2fb","A jury box with two questions for the jury");};
-ART.verdict=function(){var o="";
- o+=R(96,30,288,230,"#fff",12,' stroke="#cfd8dc" stroke-width="2"');
- o+=TX(240,72,"VERDICT",16,"#546e7a","middle",800)+TX(240,118,"GUILTY",44,"#c0392b","middle",800);
- o+=TX(240,150,"of murder",22,"#1d2b53","middle",800);
- o+=LN(150,168,330,168,"#e0e6ea",3);
- o+=TX(240,196,"as charged in the indictment",14,"#546e7a","middle",700);
- o+=R(170,216,140,24,"#ede9ff",12)+TX(240,233,"Oct. 1, 2019",13,"#4a3cbb","middle",800);
- o+=gavel(60,236,.6,"#8b5a2b","#5d3a1a");
- o+=balance(430,190,.45,"#6c5ce7");
- return svgWrap(o,"#e6e2fb","A verdict form reading guilty of murder");};
-ART.sentence=function(){var o="";
- o+=R(36,24,170,178,"#fff",12,' stroke="#cfd8dc" stroke-width="2"')+R(36,24,170,44,"#ef5b5b",12)+R(36,50,170,18,"#ef5b5b");
- o+=TX(121,54,"OCT. 2, 2019",15,"#fff","middle",800);
- o+=TX(121,128,"10",64,"#1d2b53","middle",800)+TX(121,158,"YEARS",20,"#ef5b5b","middle",800);
- o+=TX(121,186,"jury’s sentence",12,"#546e7a","middle",700);
- o+=TX(232,44,"What the law allowed",14,"#1d2b53","start",800);
- o+=R(232,58,224,20,"#fde3e3",10)+R(232,58,224,20,"#ef5b5b",10,' opacity=".35"');
- o+=TX(232,100,"5 years",13,"#c0392b","start",800)+TX(456,100,"99 or life",13,"#c0392b","end",800);
- var gx=232+(10-5)/(99-5)*224;
- o+=C(gx,68,9,"#1d2b53",' stroke="#fff" stroke-width="3"');
- o+=TX(232,140,"What prosecutors asked",14,"#1d2b53","start",800);
- var px=232+(28-5)/(99-5)*224;o+=R(232,152,224,14,"#fde3e3",7)+C(px,159,8,"#e67e22",' stroke="#fff" stroke-width="3"')+TX(px,184,"28+",13,"#e67e22","middle",800);
- o+=TX(232,226,"Eligible for parole after",13,"#546e7a","start",700)+TX(232,250,"5 years (half)",22,"#1d2b53","start",800);
- return svgWrap(o,"#fdeaea","A calendar showing a ten year sentence next to the legal range");};
-ART.appeal=function(){var o="";
- o+=R(0,252,480,48,"#fde3e3");
- for(var i=0;i<3;i++){var x=120+i*120;o+=C(x,98,22,["#ffcc80","#d7ccc8","#ffe0b2"][i])+PA("M"+(x-44)+",190 Q"+x+",114 "+(x+44)+",190 L"+(x+44)+",252 L"+(x-44)+",252 Z","#37474f")+PA("M"+(x-12)+",124 L"+x+",160 L"+(x+12)+",124 Z","#fff");}
- o+=R(30,200,420,16,"#a8744a",4);
- o+=R(176,26,128,30,"#e8f5e9",8,' stroke="#2e9d6d" stroke-width="3"')+TX(240,47,"AFFIRMED",17,"#1b7a50","middle",800);
- o+=TX(240,282,"Three judges, unanimous",13,"#c0392b","middle",800);
- return svgWrap(o,"#fdeaea","Three appeals judges and an affirmed stamp");};
-ART.bodycam=function(){var o="";
- o+=PA("M120,300 L120,170 Q120,130 170,118 L310,118 Q360,130 360,170 L360,300 Z","#37474f");
- o+=PA("M210,118 L240,150 L270,118 Z","#eceff1");
- o+=R(204,166,72,52,"#263238",10)+C(240,192,16,"#90a4ae")+C(240,192,8,"#263238")+C(264,176,4,"#ff5252");
- o+=TX(240,70,"Botham Jean Act",24,"#c0392b","middle",800)+TX(240,98,"“Bo’s Law,” 2021",15,"#546e7a","middle",700);
- o+=TX(240,260,"Body cameras stay on",15,"#fff","middle",800);
- return svgWrap(o,"#fdeaea","A police body camera");};
-ART.civil=function(){var o="";
- o+=balance(240,150,1.15,"#1d2b53");
- o+=R(172,18,136,46,"#fff3cd",10,' stroke="#f1b500" stroke-width="3"')+TX(240,50,"$98.65M",26,"#8a5a00","middle",800);
- o+=TX(240,284,"Civil lawsuit: money, not prison",14,"#c0392b","middle",800);
- return svgWrap(o,"#fdeaea","Scales of justice with a civil judgment amount");};
-ART.denied=function(){var o="";
- o+=R(120,36,240,220,"#455a64",8);
- for(var i=0;i<7;i++)o+=R(140+i*32,50,12,192,"#90a4ae",5);
- o+=R(120,36,240,16,"#37474f")+R(120,240,240,16,"#37474f");
- o+=R(150,112,180,58,"#fff",10,' stroke="#ef5b5b" stroke-width="4" transform="rotate(-8 240 140)"')+TX(240,150,"DENIED",34,"#ef5b5b","middle",800,' transform="rotate(-8 240 140)"');
- o+=C(60,70,36,"#fff",' stroke="#ef5b5b" stroke-width="4"')+LN(60,70,60,48,"#37474f",4)+LN(60,70,76,78,"#37474f",4)+TX(60,128,"2024",14,"#c0392b","middle",800);
- o+=TX(240,282,"Eligible after 5 years. Request turned down.",13,"#c0392b","middle",800);
- return svgWrap(o,"#fdeaea","A barred gate with a denied stamp");};
-ART.granted=function(){var o="";
- o+=R(0,252,480,48,"#fde3e3");
- o+=R(150,40,150,216,"#455a64",8)+PA("M300,40 L380,64 L380,236 L300,256 Z","#fff7e0")+R(166,56,118,200,"#ffe9a8",4);
- o+=C(266,160,5,"#37474f");
- o+=R(60,70,150,98,"#fff",10,' stroke="#2e9d6d" stroke-width="4" transform="rotate(-6 135 120)"')+TX(135,106,"PAROLE",24,"#1b7a50","middle",800,' transform="rotate(-6 135 120)"')+TX(135,138,"GRANTED",24,"#1b7a50","middle",800,' transform="rotate(-6 135 120)"');
- o+=TX(135,160,"Oct. 1, 2026",13,"#546e7a","middle",800,' transform="rotate(-6 135 120)"');
- o+=TX(240,284,"Seven years to the day after the verdict",13,"#c0392b","middle",800);
- return svgWrap(o,"#fdeaea","An open door and a parole granted stamp");};
-ART.released=function(){var o="";
- o+=R(0,150,480,150,"#f7c6c6");
- o+=PA("M0,214 Q240,160 480,214 L480,300 L0,300 Z","#eab0b0");
- o+=C(360,106,42,"#ffd166");
- o+=PA("M120,300 L220,196 L260,196 L360,300 Z","#cfd8dc")+LN(240,296,240,206,"#fff",5,' stroke-dasharray="14 12"');
- o+=R(30,104,120,110,"#78909c",4);for(var i=0;i<4;i++)o+=R(40+i*26,84,16,24,"#607d8b",2);
- o+=R(78,158,24,56,"#fde3e3",2);
- o+=R(300,198,130,36,"#fff",8,' stroke="#ef5b5b" stroke-width="3"')+TX(365,222,"Gatesville, Texas",13,"#c0392b","middle",800);
- o+=TX(240,36,"Oct. 16, 2026",18,"#c0392b","middle",800);
- return svgWrap(o,"#fdeaea","A road leading away from a prison wall");};
-ART.today=function(){var o="";
- o+=C(240,150,92,"#fff",' stroke="#ffd166" stroke-width="10"');
- o+=PA("M240,70 L256,150 L240,230 L224,150 Z","#ef5b5b")+PA("M160,150 L240,134 L320,150 L240,166 Z","#37474f");
- o+=C(240,150,10,"#fff",' stroke="#37474f" stroke-width="3"');
- o+=TX(240,38,"What do you think?",22,"#8a5a00","middle",800);
- o+=TX(240,282,"Facts, law, and your reasoning",14,"#8a5a00","middle",800);
- return svgWrap(o,"#fff3d6","A compass");};
+var INK2="#1b2440";
+function sc(p,inner,label){p=p||{color:"#6c5ce7",soft:"#e6e2fb"};return svgWrap(inner,p.soft,label);}
+function pc(p){return (p||{color:"#6c5ce7"}).color;}
+ART.shooting=function(p){var c=pc(p),o=R(170,50,140,194,c,10);
+ for(var r=0;r<4;r++)for(var k=0;k<3;k++)o+=R(188+k*40,68+r*42,28,28,"#fff",5,' opacity=".32"');
+ o+=R(228,68,28,28,"#ffc83d",5)+R(228,110,28,28,"#fff",5)+R(120,244,240,6,"rgba(0,0,0,.12)",3);
+ return sc(p,o,"An apartment building with two stacked windows highlighted");};
+ART.arrest=function(p){var c=pc(p),o=R(180,44,120,178,"#fff",14);
+ for(var i=0;i<4;i++)o+=R(200,72+i*30,i==3?50:80,10,"#dfe5ea",5);
+ o+=C(300,216,42,c)+PA("M300,190 L308,210 L330,210 L312,223 L319,244 L300,231 L281,244 L288,223 L270,210 L292,210 Z","#fff");
+ return sc(p,o,"A warrant document with a badge");};
+ART.fired=function(p){var c=pc(p),o=PA("M240,40 L330,70 L330,150 Q330,214 240,258 Q150,214 150,150 L150,70 Z",c)
+ +PA("M240,98 L252,128 L284,128 L258,148 L268,180 L240,160 L212,180 L222,148 L196,128 L228,128 Z","#fff")+LN(172,70,308,244,INK2,12);
+ return sc(p,o,"A police badge crossed out");};
+ART.indict=function(p){var c=pc(p),o=R(170,40,140,200,"#fff",14)+R(170,40,140,34,c,14)+R(170,60,140,14,c);
+ for(var i=0;i<3;i++)o+=R(194,98+i*24,i==2?50:92,9,"#dfe5ea",4);
+ o+=C(240,206,28,"#ffc83d")+C(240,206,17,"none",' stroke="#fff" stroke-width="4"');
+ return sc(p,o,"A legal document with a seal");};
+ART.court=function(p){var c=pc(p),o=PA("M100,112 L240,40 L380,112 Z",c);
+ for(var i=0;i<5;i++)o+=R(134+i*54,124,26,92,"#fff",5);
+ o+=R(96,216,288,16,c,5)+R(80,232,320,14,c,5);
+ return sc(p,o,"A courthouse");};
+ART.stand=function(p){var c=pc(p),o=R(160,132,160,102,c,10)+R(146,122,188,16,"#fff",7)+R(236,66,8,58,INK2,4)+C(240,60,14,INK2);
+ return sc(p,o,"A witness stand with a microphone");};
+ART.jury=function(p){var c=pc(p),o="";
+ for(var i=0;i<6;i++){var x=95+i*58;o+=C(x,114,20,c)+PA("M"+(x-28)+",204 Q"+x+",144 "+(x+28)+",204 Z",c,' opacity=".85"');}
+ o+=R(66,204,348,26,"#fff",10);
+ return sc(p,o,"Twelve jurors in a jury box");};
+ART.verdict=function(p){var c=pc(p),o=gavel(240,134,1.45,c,INK2)+R(166,226,148,20,c,8);
+ return sc(p,o,"A gavel");};
+ART.sentence=function(p){var c=pc(p),o=R(150,36,180,208,"#fff",18)+R(150,36,180,48,c,18)+R(150,62,180,22,c)+C(196,36,8,"#fff")+C(284,36,8,"#fff")+TX(240,196,"10",96,INK2,"middle",800);
+ return sc(p,o,"A calendar page showing ten");};
+ART.appeal=function(p){var c=pc(p),o="";
+ [150,240,330].forEach(function(x){o+=C(x,104,24,c)+PA("M"+(x-42)+",196 Q"+x+",120 "+(x+42)+",196 Z",c,' opacity=".85"');});
+ o+=R(92,196,296,22,"#fff",9);
+ return sc(p,o,"Three appeals judges at a bench");};
+ART.bodycam=function(p){var c=pc(p),o=PA("M126,262 L126,170 Q126,130 176,118 L304,118 Q354,130 354,170 L354,262 Z",c)+PA("M210,118 L240,150 L270,118 Z","#fff")
+ +R(206,168,68,48,INK2,12)+C(240,192,15,"#9fb3c8")+C(264,177,4.5,"#ff5252");
+ return sc(p,o,"A police body camera");};
+ART.civil=function(p){return sc(p,balance(240,150,1.3,pc(p)),"Scales of justice");};
+ART.denied=function(p){var c=pc(p),o=R(150,40,180,210,c,12);
+ for(var i=0;i<5;i++)o+=R(172+i*30,58,12,174,"#fff",6,' opacity=".92"');
+ return sc(p,o,"A barred gate");};
+ART.granted=function(p){var c=pc(p),o=R(140,40,160,210,c,12)+R(156,56,128,194,"#ffe9a8",4)+PA("M300,40 L376,66 L376,238 L300,250 Z","#fff")+C(132,234,36,"#2e9d6d")
+ +'<path d="M115,234 L127,247 L151,220" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+ return sc(p,o,"An open door with a check mark");};
+ART.released=function(p){var c=pc(p),o=C(346,98,44,"#ffc83d")+R(58,130,104,122,c,6,' opacity=".55"')+PA("M150,262 L220,152 L260,152 L330,262 Z",c)+LN(240,254,240,162,"#fff",5,' stroke-dasharray="14 12"');
+ return sc(p,o,"A road leading away from a prison wall");};
+ART.today=function(p){var c=pc(p),o=C(240,150,96,"#fff",' stroke="'+c+'" stroke-width="12"')+PA("M240,72 L256,150 L240,228 L224,150 Z","#ef5b5b")+PA("M162,150 L240,134 L318,150 L240,166 Z",INK2)+C(240,150,10,"#fff",' stroke="'+INK2+'" stroke-width="3"');
+ return sc(p,o,"A compass");};
 
 /* ---------- Sentencing gauge for the Toolkit ---------- */
 function gaugeSVG(){
@@ -765,17 +661,14 @@ function buildTimeline(){
     var node=el("button",{class:"node "+it.t,type:"button","aria-label":label,"data-i":i,tabindex:i===0?"0":"-1",onclick:open},it.t==="ev"?"":it.t==="gate"?"✎":"★");
     var card=el("div",{class:"card "+it.t,onclick:open});
     if(it.t==="ev"){
-      var cart=el("div",{class:"cart",html:ART[it.ev.art]()});if(vc)cart.append(el("span",{class:"vbadge"},"▶ "+vc+(vc>1?" videos":" video")));
-      card.append(cart,
-        el("div",{class:"cardb"},el("span",{class:"pill"},it.ev.date),el("h3",{text:it.ev.title}),el("p",{text:it.ev.teaser}),el("span",{class:"tag"},"Part "+it.ev.part+" · "+part.name)));
+      var cart=el("div",{class:"cart",html:ART[it.ev.art](part)});if(vc)cart.append(el("span",{class:"vbadge","aria-hidden":"true",title:vc+(vc>1?" videos":" video")},"▶"));
+      card.append(cart,el("div",{class:"cardb"},el("span",{class:"pill"},it.ev.date),el("h3",{text:it.ev.title})));
     }else if(it.t==="gate"){
-      card.append(el("div",{class:"gatehd"},el("span",{class:"gico"},"✎"),el("div",{},el("div",{class:"gk"},"Your turn · Part "+it.part.id),el("h3",{text:it.part.name}))),
-        el("ul",{class:"gq"},it.part.qs.map(function(q){return el("li",{"data-q":q.id,text:q.q});})),
-        el("div",{class:"gprog","data-gp":it.part.id}),
-        el("span",{class:"gbtn"},"Open the questions →"));
+      card.append(el("div",{class:"gatehd"},el("span",{class:"gico"},"✎"),el("div",{},el("div",{class:"gk"},"Your turn"),el("h3",{text:"Part "+it.part.id+": "+it.part.name}))),
+        el("div",{class:"gprog","data-gp":it.part.id}));
     }else{
-      card.append(el("div",{class:"gatehd fin"},el("span",{class:"gico"},"★"),el("div",{},el("div",{class:"gk"},"The last step"),el("h3",{text:"Finish and download your essay"}))),
-        el("p",{class:"finp",id:"finp"}),el("span",{class:"gbtn"},"See my checklist →"));
+      card.append(el("div",{class:"gatehd fin"},el("span",{class:"gico"},"★"),el("div",{},el("div",{class:"gk"},"Last step"),el("h3",{text:"Finish and download"}))),
+        el("p",{class:"finp",id:"finp"}));
     }
     var wrap=el("div",{class:"it "+(i%2?"dn":"up")+" "+it.t,role:"listitem","data-part":part?part.id:0,style:"--pc:"+pc+";--ps:"+(part?part.soft:"#ececf4")},el("div",{class:"seg"}),el("div",{class:"stem"}),node,card);
     tl.append(wrap);
@@ -795,7 +688,7 @@ function refreshTL(){
   [].forEach.call(document.querySelectorAll(".node"),function(nd){var it=ITEMS[+nd.getAttribute("data-i")];if(it.t==="ev")nd.classList.toggle("seen",!!S.seen[it.ev.id]);});
   [].forEach.call(document.querySelectorAll(".gprog"),function(g){var p=PARTS[+g.getAttribute("data-gp")-1];g.replaceChildren();p.qs.forEach(function(q){g.append(el("span",{class:"dot"+(qDone(q.id)?" ok":"")}));});g.append(el("span",{class:"gtxt",text:partCount(p)+" of "+p.qs.length+" answered"}));});
   [].forEach.call(document.querySelectorAll(".gq li"),function(li){li.classList.toggle("ok",qDone(li.getAttribute("data-q")));});
-  var fp=$("finp");if(fp)fp.textContent=S.done?"Your essay was built and downloaded. You can edit your answers and download it again.":n<QTOTAL?(QTOTAL-n)+" answer"+(QTOTAL-n===1?"":"s")+" still to go. Your Word essay is built when you finish.":"All "+QTOTAL+" answers are ready. Press finish to build and download your Word essay.";
+  var fp=$("finp");if(fp)fp.textContent=S.done?"Essay downloaded.":n<QTOTAL?(QTOTAL-n)+" answer"+(QTOTAL-n===1?"":"s")+" to go":"Ready to finish";
 }
 
 /* ============ OVERLAYS ============ */
@@ -810,20 +703,18 @@ function openEvent(id,ret){
   var idx=EVENTS.findIndex(function(e){return e.id===id;}),ev=EVENTS[idx],p=PARTS[ev.part-1];
   S.seen[id]=1;save();
   var prev=EVENTS[idx-1],next=EVENTS[idx+1];
-  var right=el("div",{class:"pr"},el("span",{class:"pill big"},ev.date),el("h2",{text:ev.title}),ev.body.map(function(t){return el("p",{text:t});}),
-    el("div",{class:"chips"},ev.facts.map(function(f){return el("span",{class:"chip",text:f});})));
+  var right=el("div",{class:"pr"},el("span",{class:"pill big"},ev.date),el("h2",{text:ev.title}),ev.body.map(function(t){return el("p",{text:t});}));
   var vs=videoSection(ev.id);if(vs)right.append(vs);
-  if(ev.law)right.append(el("div",{class:"lens"},el("div",{class:"lk"},"Texas law lens"),el("h4",{text:ev.law.t}),el("p",{text:ev.law.x}),el("button",{type:"button",class:"btn ghost sm",onclick:function(){openTk(ev.law.tool);}},"Open in the Toolkit →")));
-  right.append(el("p",{class:"srcs"},"Sources: "+ev.src.join("; ")+". See the full list under Toolkit → Sources."));
+  if(ev.law)right.append(el("details",{class:"dd"},el("summary",{},"Texas law lens: "+ev.law.t),el("div",{class:"ddb"},el("p",{text:ev.law.x}),el("button",{type:"button",class:"btn ghost sm",onclick:function(){openTk(ev.law.tool);}},"Open in the Toolkit →"))));
   var foot=el("div",{class:"pf"});
   if(ret)foot.append(el("button",{type:"button",class:"btn ghost",onclick:function(){openGate(ret.gate);}},"← Back to my answers"));
   if(prev)foot.append(el("button",{type:"button",class:"btn ghost",onclick:function(){openEvent(prev.id,ret);}},"◀ Previous"));
   if(next&&next.part===ev.part)foot.append(el("button",{type:"button",class:"btn",onclick:function(){openEvent(next.id,ret);}},"Next event ▶"));
   else foot.append(el("button",{type:"button",class:"btn",onclick:function(){openGate(ev.part);}},ev.part===3&&idx===EVENTS.length-1?"Open Part 3 questions ✎":"Open Part "+ev.part+" questions ✎"));
-  var pos=el("div",{class:"pos"},el("b",{},"Event "+(idx+1)+" of "+EVENTS.length),el("div",{class:"pdots"},EVENTS.map(function(e,j){return el("i",{class:j===idx?"cur":(S.seen[e.id]?"was":""),style:"--dc:"+PARTS[e.part-1].color,title:e.date+": "+e.title});})));
+  var pos=el("div",{class:"pos"},el("b",{},"Event "+(idx+1)+" of "+EVENTS.length));
   var panel=el("div",{class:"panel ev",role:"dialog","aria-modal":"true","aria-label":ev.title,style:"--pc:"+p.color+";--ps:"+p.soft},
     el("div",{class:"ph"},el("span",{class:"ptag"},"Part "+p.id+" · "+p.name),el("button",{type:"button",class:"x","aria-label":"Close","data-first":"1",onclick:closeOv},"✕")),
-    el("div",{class:"pbody"},el("div",{class:"pl"},el("div",{class:"art",html:ART[ev.art]()}),pos),right),foot);
+    el("div",{class:"pbody"},el("div",{class:"pl"},el("div",{class:"art",html:ART[ev.art](p)}),pos),right),foot);
   openOv(panel,"event",{id:id,ret:ret});
 }
 function openGate(pid,focusQ){
@@ -895,27 +786,25 @@ function vids(id){return CFG.videos===false?[]:(VIDEOS[id]||[]);}
 function videoCard(v){
   var box=el("div",{class:"vid "+(v.yt?"emb":"lnk")});
   var info=el("div",{class:"vinfo"},el("b",{class:"vt",text:v.t}),el("span",{class:"vsrc",text:v.s+(v.d?" · "+v.d:"")}));
-  if(v.n)info.append(el("p",{class:"vn",text:v.n}));
-  if(v.w)info.append(el("p",{class:"vwarn",text:"Heads up: "+v.w}));
   if(v.yt){
     var holder=el("div",{class:"vplayer"});
     var play=el("button",{type:"button",class:"vbtn","aria-label":"Play video: "+v.t,onclick:function(){
       var fr=el("iframe",{src:"https://www.youtube-nocookie.com/embed/"+v.yt+"?rel=0&modestbranding=1&autoplay=1",title:v.t,allow:"autoplay; fullscreen; encrypted-media; picture-in-picture",allowfullscreen:true,referrerpolicy:"strict-origin-when-cross-origin"});
       holder.replaceChildren(el("div",{class:"vframe"},fr));
-    }},el("span",{class:"vplay"},"▶"),el("span",{class:"vlab"},el("b",{},"Play here"),el("small",{},"Loads from YouTube when you click")));
+    }},el("span",{class:"vplay"},"▶"),el("span",{class:"vlab"},"Play here"));
     holder.append(play);
-    box.append(holder,info,el("a",{class:"vlink",href:"https://www.youtube.com/watch?v="+v.yt,target:"_blank",rel:"noopener noreferrer"},"Watch on YouTube ↗ (opens a new tab)"));
+    box.append(holder,info,el("a",{class:"vlink",href:"https://www.youtube.com/watch?v="+v.yt,target:"_blank",rel:"noopener noreferrer"},"Open on YouTube ↗"));
   }else{
-    box.append(info,el("a",{class:"vlink big",href:v.u,target:"_blank",rel:"noopener noreferrer"},"Watch on "+v.s+" ↗ (opens a new tab)"));
+    box.append(info,el("a",{class:"vlink big",href:v.u,target:"_blank",rel:"noopener noreferrer"},"Watch on "+v.s+" ↗"));
   }
   return box;
 }
 function videoSection(id){
   var a=vids(id);if(!a.length)return null;
-  var s=el("div",{class:"vids"},el("div",{class:"lk"},"Watch what happened"));
-  a.forEach(function(v){s.append(videoCard(v));});
-  s.append(el("p",{class:"vnote"},"These are real people and real courtroom moments, and some are emotional. You can skip any video. If a video will not play at your school, use the link beneath it."));
-  return s;
+  var body=el("div",{class:"ddb"});
+  a.forEach(function(v){body.append(videoCard(v));});
+  body.append(el("p",{class:"vnote"},"Some moments are emotional. You can skip any video."));
+  return el("details",{class:"dd vdet"},el("summary",{},"▶ Watch ("+a.length+(a.length>1?" videos":" video")+")"),body);
 }
 
 /* ============ TOOLKIT ============ */
@@ -1000,7 +889,7 @@ function begin(){
   S.name=nm;S.started=true;save();$("cover").hidden=true;$("app").hidden=false;$("top").classList.add("on");buildTimeline();window.scrollTo(0,0);
 }
 function boot(){
-  $("cvart").innerHTML='<div class="c1">'+ART.shooting()+'</div><div class="c2">'+ART.verdict()+'</div><div class="c3">'+ART.released()+'</div>';
+  $("cvart").innerHTML='<div class="c1">'+ART.shooting(PARTS[0])+'</div><div class="c2">'+ART.verdict(PARTS[1])+'</div><div class="c3">'+ART.released(PARTS[2])+'</div>';
   if(S.name)$("nm").value=S.name;
   $("cont").hidden=!S.started;
   $("cont").addEventListener("click",function(){$("cover").hidden=true;$("app").hidden=false;$("top").classList.add("on");buildTimeline();});
