@@ -268,12 +268,12 @@ var PARTS=[
          {t:"Texas murder categories",u:"https://www.attorneycarter.com/what-are-the-different-degrees-of-murder/"}],
   qs:[{id:"q1a",q:"What is she being charged with?",hint:["Charges can change over time. Check the timeline: what was she charged with first, and what did a grand jury do later?"]},
       {id:"q1b",q:"Based on the facts presented above, what would you charge her with?",hint:["Open the Texas Law Toolkit and look at the offense ladder. Which mental state best fits the facts: intentional, reckless, or negligent?","Name the facts that support your choice."]},
-      {id:"q1c",q:"What more information would you need to make a more informed decision on charges?",hint:["What facts would change your mind? Think about her state of mind, the door, the signs she may have missed, and what Botham Jean was doing."]}]},
+      {id:"q1c",q:"What more information would you need to make a more informed decision on charges?",hint:["What facts would change your mind? Think about her state of mind, the door, the signs she may have missed, what she was doing and who she was talking to that night, and what Botham Jean was doing."]}]},
  {id:2,name:"The trial",short:"Part 2",color:"#6c5ce7",soft:"#e6e2fb",
   reads:[{t:"Trial and Verdict",u:"https://www.cbsnews.com/news/amber-guyger-verdict-guilty-verdict-delivered-in-ex-dallas-police-officer-trial-today-live-updates-2019-10-01/"},
          {t:"Texas Jury Sentencing",u:"https://bennettandbennett.com/blog/jury-sentencing-in-texas"}],
   qs:[{id:"q2a",q:"What was the verdict in this case?",hint:["Say what the jury decided, which offense it was, and what the jury had to decide next."]},
-      {id:"q2b",q:"Do you agree with the jury’s findings? Explain",hint:["Think about what the jury had to decide: her mental state, whether the Castle Doctrine applied, and whether murder or manslaughter fits better."]},
+      {id:"q2b",q:"Do you agree with the jury’s findings? Explain",hint:["Think about what the jury had to decide: her mental state, whether the Castle Doctrine applied, and whether murder or manslaughter fits better. How much weight would you give her phone call and texts with her partner?"]},
       {id:"q2c",q:"What arguments did you find the most convincing?",hint:["Pick an argument from the prosecution or the defense and explain why it persuaded you."]},
       {id:"q2d",q:"What more information may you need to come to a decision?",hint:["What evidence, testimony, or part of the law would you want to see before you felt sure?"]}]},
  {id:3,name:"Sentencing and parole",short:"Part 3",color:"#ef5b5b",soft:"#fde3e3",
@@ -290,7 +290,7 @@ var QTOTAL=0;PARTS.forEach(function(p){QTOTAL+=p.qs.length;});
 var EVENTS=[
 {id:"e1",part:1,date:"Sept. 6, 2018",title:"The wrong apartment",art:"shooting",
  teaser:"An off-duty officer enters the wrong unit, and a man is killed in his own home.",
- body:["Off-duty Dallas officer Amber Guyger, 30, came home in uniform after a very long shift. She parked on the fourth floor of the garage instead of the third and went to apartment 1478. Her own apartment, 1378, was directly below.",
+ body:["Off-duty Dallas officer Amber Guyger, 30, came home in uniform after a very long shift. She parked on the fourth floor of the garage instead of the third and went to apartment 1478. Her own apartment, 1378, was directly below. Prosecutors later said she had been on the phone with her police partner until she reached the garage.",
        "Inside, Botham Jean, 26, an accountant from St. Lucia, was on his couch. Guyger said the door was partly open and she thought she had found a burglar in her home. She fired twice, and one shot hit Jean in the chest. He died at a hospital."],
  facts:["Botham Jean, 26","South Side Flats, Dallas","Floor 3 (hers) and floor 4 (his)"],
  law:{t:"Two questions drive this case",x:"Texas murder law looks closely at a person’s mental state: did she intend to cause a death, act recklessly, or fail to notice a risk? And did she reasonably believe she was in danger? These questions return in every part of the case.",tool:"ladder"},
@@ -317,9 +317,11 @@ var EVENTS=[
 {id:"e5",part:2,date:"Sept. 23, 2019",title:"The trial begins",art:"court",
  teaser:"Prosecutors and the defense tell two very different stories about the same night.",
  body:["About a year later, the trial began in Dallas County before Judge Tammy Kemp, with the jury sequestered.",
-       "Prosecutors said Guyger made unreasonable errors and missed clear signs, like the floor number and a bright red doormat. The defense said she was exhausted, the floors looked alike, and she honestly believed she was in danger in her own home."],
+       "Prosecutors said Guyger made unreasonable errors and missed clear signs, like the floor number and a bright red doormat. The defense said she was exhausted, the floors looked alike, and she honestly believed she was in danger in her own home.",
+       "The first day also centered on her relationship with her married police partner, Martin Rivera. He acknowledged a sexual relationship and sexually suggestive messages that day, but said they were no longer intimate and had no plans to meet. They spoke by phone for 16 minutes as she drove home, and the messages were deleted the day after the shooting, then recovered. Prosecutors said she was distracted. The defense said the relationship had nothing to do with her honest mistake."],
+ law:{t:"Why the texts mattered legally",x:"Evidence has to be relevant, meaning it makes a fact that matters more or less likely (Texas Rules of Evidence, Rule 401). Prosecutors said the phone call and texts showed Guyger was distracted, which they argued weakened her claim that she was an exhausted officer making an honest mistake. The defense said the relationship had no bearing on whether she reasonably believed she was in her own home. A judge decides what jurors may see. Jurors decide how much it matters."},
  facts:["Judge: Tammy Kemp","Dallas County, 204th District Court","Jury sequestered"],
- src:["ABC News","FindLaw","The Dallas Morning News"]},
+ src:["ABC News","FindLaw","The Dallas Morning News","NBC News","CBS News","CNN"]},
 {id:"e6",part:2,date:"Sept. 27, 2019",title:"Guyger takes the stand",art:"stand",
  teaser:"Her own words about what she meant to do become a key issue.",
  body:["Guyger took the stand and, in tears, said she believed she was in her own apartment and feared for her life. Prosecutors asked her to picture the moment from Jean’s side.",
@@ -705,7 +707,7 @@ function openEvent(id,ret){
   var prev=EVENTS[idx-1],next=EVENTS[idx+1];
   var right=el("div",{class:"pr"},el("span",{class:"pill big"},ev.date),el("h2",{text:ev.title}),ev.body.map(function(t){return el("p",{text:t});}));
   var vs=videoSection(ev.id);if(vs)right.append(vs);
-  if(ev.law)right.append(el("details",{class:"dd"},el("summary",{},"Texas law lens: "+ev.law.t),el("div",{class:"ddb"},el("p",{text:ev.law.x}),el("button",{type:"button",class:"btn ghost sm",onclick:function(){openTk(ev.law.tool);}},"Open in the Toolkit →"))));
+  if(ev.law)right.append(el("details",{class:"dd"},el("summary",{},"Texas law lens: "+ev.law.t),el("div",{class:"ddb"},el("p",{text:ev.law.x}),ev.law.tool?el("button",{type:"button",class:"btn ghost sm",onclick:function(){openTk(ev.law.tool);}},"Open in the Toolkit →"):null)));
   var foot=el("div",{class:"pf"});
   if(ret)foot.append(el("button",{type:"button",class:"btn ghost",onclick:function(){openGate(ret.gate);}},"← Back to my answers"));
   if(prev)foot.append(el("button",{type:"button",class:"btn ghost",onclick:function(){openEvent(prev.id,ret);}},"◀ Previous"));
